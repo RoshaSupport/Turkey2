@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no,
+      viewport-fit=cover">
+
+<meta name="theme-color" content="#111111">
+
+<title>ارتباط مستقیم</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family:
+        Tahoma,
+        Arial,
+        "Segoe UI",
+        sans-serif;
+
+    background: #111;
+}
+
+body {
+    color: #111;
+    touch-action: manipulation;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background-image:
+        url("./background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================================================
+   MAIN INSTRUCTION
+========================================================= */
+
+.instruction {
+
+    position: absolute;
+
+    z-index: 20;
+
+    top: 3.5%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 98%;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    color: #111;
+
+    font-size:
+        clamp(
+            25px,
+            6.8vw,
+            37px
+        );
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.95),
+        0 2px 2px rgba(255,255,255,0.55),
+        0 3px 7px rgba(0,0,0,0.18);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTACT AREA
+========================================================= */
+
+.contact-area {
+
+    position: absolute;
+
+    z-index: 30;
+
+    /*
+       دکمه‌ها دقیقاً ۱٪ ارتفاع صفحه پایین‌تر آمده‌اند
+    */
+
+    top: 10.5%;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    direction: ltr;
+
+    padding-left: 10.7%;
+
+    padding-right: 10%;
+
+    gap: 10vw;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.contact-button {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 36.2vw;
+
+    max-width: 170px;
+
+    height: 68px;
+
+    border-radius: 15px;
+
+    border: 1px solid
+        rgba(255,255,255,0.76);
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    transform:
+        translate3d(0,0,0);
+
+    transition:
+        transform 80ms ease,
+        box-shadow 80ms ease,
+        filter 80ms ease;
+
+    backdrop-filter:
+        blur(14px)
+        saturate(150%);
+
+    -webkit-backdrop-filter:
+        blur(14px)
+        saturate(150%);
+}
+
+
+/* =========================================================
+   GLASS EFFECT
+========================================================= */
+
+.contact-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius: 14px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.52) 0%,
+            rgba(255,255,255,0.18) 25%,
+            rgba(255,255,255,0.035) 58%,
+            rgba(0,0,0,0.16) 100%
+        );
+}
+
+
+/* =========================================================
+   GLASS HIGHLIGHT
+========================================================= */
+
+.contact-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 9%;
+
+    width: 82%;
+
+    height: 2px;
+
+    border-radius: 100%;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 1px 5px
+        rgba(255,255,255,0.42);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(52,232,124,0.95),
+            rgba(37,211,102,0.97) 48%,
+            rgba(18,166,82,0.98)
+        );
+
+    box-shadow:
+
+        0 14px 24px
+        rgba(0,0,0,0.34),
+
+        0 7px 10px
+        rgba(0,0,0,0.23),
+
+        inset 0 3px 3px
+        rgba(255,255,255,0.58),
+
+        inset 0 -7px 10px
+        rgba(0,0,0,0.19);
+}
+
+
+/* =========================================================
+   EITAA
+========================================================= */
+
+.eitaa {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,171,75,0.97),
+            rgba(245,130,32,0.98) 48%,
+            rgba(211,91,9,0.99)
+        );
+
+    box-shadow:
+
+        0 14px 24px
+        rgba(0,0,0,0.34),
+
+        0 7px 10px
+        rgba(0,0,0,0.23),
+
+        inset 0 3px 3px
+        rgba(255,255,255,0.58),
+
+        inset 0 -7px 10px
+        rgba(0,0,0,0.19);
+}
+
+
+/* =========================================================
+   BUTTON NAME
+   اندازه ایتا و واتساپ بدون تغییر
+========================================================= */
+
+.button-name {
+
+    position: relative;
+
+    z-index: 5;
+
+    color: #fff;
+
+    font-size:
+        clamp(
+            22px,
+            5.9vw,
+            30px
+        );
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-shadow:
+
+        0 2px 2px
+        rgba(0,0,0,0.32),
+
+        0 3px 6px
+        rgba(0,0,0,0.24);
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   DIRECT CONTACT TEXT
+========================================================= */
+
+.direct-text {
+
+    position: relative;
+
+    z-index: 5;
+
+    color: #fff;
+
+    font-size:
+        clamp(
+            14px,
+            3.6vw,
+            18px
+        );
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-shadow:
+
+        0 1px 2px
+        rgba(0,0,0,0.35);
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PRESS EFFECT
+========================================================= */
+
+.contact-button:active {
+
+    transform:
+        translate3d(0,5px,0)
+        scale(0.985);
+
+    filter:
+        brightness(0.92);
+
+    box-shadow:
+
+        0 4px 7px
+        rgba(0,0,0,0.30),
+
+        0 2px 3px
+        rgba(0,0,0,0.18),
+
+        inset 0 6px 10px
+        rgba(0,0,0,0.24),
+
+        inset 0 -1px 2px
+        rgba(255,255,255,0.18);
+}
+
+
+/* =========================================================
+   SMALL HEIGHT PHONES
+========================================================= */
+
+@media (max-height: 700px) {
+
+    .instruction {
+        top: 3%;
+        font-size: 22px;
+    }
+
+    .contact-area {
+        top: 10.5%;
+    }
+
+    .contact-button {
+        height: 62px;
+    }
+
+    .button-name {
+        font-size: 21px;
+        margin-bottom: 3px;
+    }
+
+    .direct-text {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   VERY NARROW PHONES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .instruction {
+        top: 3%;
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+
+    .contact-area {
+        top: 10.5%;
+        padding-left: 8%;
+        padding-right: 12%;
+        gap: 8vw;
+    }
+
+    .contact-button {
+        width: 38vw;
+        height: 62px;
+    }
+
+    .button-name {
+        font-size: 20px;
+    }
+
+    .direct-text {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   LANDSCAPE
+========================================================= */
+
+@media (orientation: landscape) {
+
+    .instruction {
+        top: 2.5%;
+        font-size: 20px;
+    }
+
+    .contact-area {
+        top: 9%;
+    }
+
+    .contact-button {
+        height: 58px;
+    }
+
+    .button-name {
+        font-size: 20px;
+    }
+
+    .direct-text {
+        font-size: 12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+    <div class="instruction">
+        یکی را انتخاب کنید
+    </div>
+
+
+    <section
+        class="contact-area"
+        aria-label="انتخاب پیام‌رسان"
+    >
+
+
+        <a
+            id="eitaaButton"
+            class="contact-button eitaa"
+            href="#"
+            aria-label="ایتا"
+        >
+
+            <span class="button-name">
+                ایتا
+            </span>
+
+            <span class="direct-text">
+                ارتباط مستقیم
+            </span>
+
+        </a>
+
+
+        <a
+            id="whatsappButton"
+            class="contact-button whatsapp"
+            href="#"
+            aria-label="واتساپ"
+        >
+
+            <span class="button-name">
+                واتساپ
+            </span>
+
+            <span class="direct-text">
+                ارتباط مستقیم
+            </span>
+
+        </a>
+
+
+    </section>
+
+</main>
+
+
+<script>
+
+
+/* =========================================================
+   تنظیمات اصلی ارتباط
+========================================================= */
+
+const CONTACT_SETTINGS = {
+
+
+    whatsappNumber:
+        "989303833007",
+
+
+    whatsappMessage:
+        "سلام،\nمن از اینستاگرام برای مهاجرت به اروپا ویا کار در ترکیه و آلمان پیام دادم.لطفا راهنمایی بفرمایید",
+
+
+    eitaaUsername:
+        "Hamidrezasalimii"
+
+};
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+const whatsappButton =
+    document.getElementById(
+        "whatsappButton"
+    );
+
+whatsappButton.href =
+    "https://wa.me/" +
+    CONTACT_SETTINGS.whatsappNumber +
+    "?text=" +
+    encodeURIComponent(
+        CONTACT_SETTINGS.whatsappMessage
+    );
+
+
+/* =========================================================
+   EITAA
+========================================================= */
+
+const eitaaButton =
+    document.getElementById(
+        "eitaaButton"
+    );
+
+eitaaButton.href =
+    "https://eitaa.com/" +
+    CONTACT_SETTINGS.eitaaUsername;
+
+
+/* =========================================================
+   BEEP SOUND
+========================================================= */
+
+let audioContext = null;
+
+
+function getAudioContext() {
+
+    try {
+
+        if (!audioContext) {
+
+            const AudioContext =
+                window.AudioContext ||
+                window.webkitAudioContext;
+
+            if (!AudioContext) {
+                return null;
+            }
+
+            audioContext =
+                new AudioContext();
+        }
+
+        if (
+            audioContext.state ===
+            "suspended"
+        ) {
+
+            audioContext.resume();
+        }
+
+        return audioContext;
+
+    } catch (error) {
+
+        return null;
+    }
+}
+
+
+function playBeep() {
+
+    const ctx =
+        getAudioContext();
+
+    if (!ctx) {
+        return;
+    }
+
+    const now =
+        ctx.currentTime;
+
+    const oscillator =
+        ctx.createOscillator();
+
+    const gain =
+        ctx.createGain();
+
+    oscillator.type =
+        "sine";
+
+    oscillator.frequency.setValueAtTime(
+        880,
+        now
+    );
+
+    gain.gain.setValueAtTime(
+        0.0001,
+        now
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.11,
+        now + 0.006
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + 0.105
+    );
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        ctx.destination
+    );
+
+    oscillator.start(now);
+
+    oscillator.stop(
+        now + 0.11
+    );
+}
+
+
+/* =========================================================
+   TOUCH SOUND
+========================================================= */
+
+whatsappButton.addEventListener(
+    "pointerdown",
+    playBeep,
+    { passive: true }
+);
+
+
+eitaaButton.addEventListener(
+    "pointerdown",
+    playBeep,
+    { passive: true }
+);
+
+
+/* =========================================================
+   REFRESH WITHOUT SCROLL
+========================================================= */
+
+let touchStartY = 0;
+let touchStartX = 0;
+let refreshing = false;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (
+            event.touches &&
+            event.touches.length === 1
+        ) {
+
+            touchStartY =
+                event.touches[0].clientY;
+
+            touchStartX =
+                event.touches[0].clientX;
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(event) {
+
+        if (refreshing) {
+            return;
+        }
+
+        if (
+            !event.changedTouches ||
+            event.changedTouches.length !== 1
+        ) {
+            return;
+        }
+
+        const endY =
+            event.changedTouches[0].clientY;
+
+        const endX =
+            event.changedTouches[0].clientX;
+
+        const distanceY =
+            endY - touchStartY;
+
+        const distanceX =
+            Math.abs(
+                endX - touchStartX
+            );
+
+
+        if (
+            touchStartY < 90 &&
+            distanceY > 95 &&
+            distanceY >
+            distanceX * 1.4
+        ) {
+
+            refreshing = true;
+
+            window.location.reload();
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+</script>
+
+</body>
+
+      </html>
